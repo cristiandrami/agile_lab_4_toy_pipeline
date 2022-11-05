@@ -9,5 +9,6 @@ subprocess.run(shlex.split(git_clone_args), stdout=subprocess.PIPE, stderr=None,
 
 
 #testing 
-tests_args = 'pytest -v'
-subprocess.run(shlex.split(tests_args), stdout=subprocess.PIPE, stderr=None, stdin=subprocess.PIPE)
+tests_args = 'pytest -v --trace'
+result = subprocess.run(shlex.split(tests_args), stdout=subprocess.PIPE, stderr=None, stdin=subprocess.PIPE)
+print(result.stdout)
