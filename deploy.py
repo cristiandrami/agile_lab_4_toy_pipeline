@@ -20,6 +20,7 @@ if len(releases_files_list)>0:
     with zipfile.ZipFile(os.getcwd() + '/artifacts/' + sorted__release_list[0] ,"r") as zip_ref:
         zip_ref.extractall(os.getcwd() +'/deploy')
         print("last release correctly deployed i /deploy directory")
-        dir_list = os.listdir(os.getcwd()+'/deploy')
     
-    subprocess.run(shlex.split('rm -rf deploy/' +dir_list[0]+"/.git"), capture_output=True)
+    dir_list = os.listdir(os.getcwd()+'/deploy')
+    shutil.rmtree('deploy/'+dir_list[0]+'/.git', ignore_errors=False, onerror=None) 
+   
