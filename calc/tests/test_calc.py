@@ -14,7 +14,7 @@ class TestSum:
     def test_add_three_numbers(self):
         c = Calc()
         res = c.add(4, 5, 6)
-        assert res == 12
+        assert res == 15
 
     def test_add_many_numbers(self):
         assert Calc().add(*range(100)) == 4950
