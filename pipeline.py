@@ -9,6 +9,13 @@ subprocess.run(shlex.split(git_clone_args), stdout=subprocess.PIPE, stderr=None,
 
 
 #testing 
-tests_args = 'pytest -v --trace'
+tests_args = 'pytest -v'
 result = subprocess.run(shlex.split(tests_args), stdout=subprocess.PIPE, stderr=None, stdin=subprocess.PIPE)
-print(result.stdout)
+
+result_string = str(result.stdout)
+test_failure = ' FAILED '
+test_summary_failure = ' failed, '
+if test_failure not in result_string and test_summary_failure not in result_string:
+    print('tests ok')
+else:
+    print('tests not ok')
